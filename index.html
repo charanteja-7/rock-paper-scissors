@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <style>
+    .game{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top:300px;
+    }
+    *{
+      padding: 0px;
+      margin:0px;
+    }
+
+    button{
+      padding: 50px;
+      margin:20px;
+    }
+  </style>
+</head>
+<div class="game">
+
+  <body>
+    <button onclick="
+  var randNumber = Math.random();
+  var computerChoice = '';
+  var result='';
+  if(randNumber >= 0  && randNumber <=1/3){
+    computerChoice = 'Rock';
+    result = 'Draw';
+  }else if(randNumber >= 1/3  && randNumber <=2/3){
+    computerChoice = 'Paper';
+    result = 'Computer Won'
+  }else{
+    computerChoice = 'Scissors';
+    result = 'You Won'
+  }
+  alert(`you choosed Rock and computer choosed ${computerChoice}, ${result}`);
+  " >Rock</button>
+    <button  onclick="
+    var randNumber = Math.random();
+    var computerChoice = '';
+    var result='';
+    if(randNumber >= 0  && randNumber <=1/3){
+      computerChoice = 'Rock';
+      result = 'You Won';
+    }else if(randNumber >= 1/3  && randNumber <=2/3){
+      computerChoice = 'Paper';
+      result = 'Draw'
+    }else{
+      computerChoice = 'Scissors';
+      result = 'Computer Won'
+    }
+    alert(`you choosed paper and computer choosed ${computerChoice}, ${result}`);
+    ">Paper</button>
+  <button  onclick="
+  let randNumber = Math.random();
+  let computerChoice = '';
+  let result='';
+  if(randNumber >= 0  && randNumber <=1/3){
+    computerChoice = 'Rock';
+    result = 'Computer Won';
+  }else if(randNumber >= 1/3  && randNumber <=2/3){
+    computerChoice = 'Paper';
+    result = 'You Won'
+  }else{
+    computerChoice = 'Scissors';
+    result = 'Draw'
+  }
+  alert(`you choosed scissors and computer choosed ${computerChoice}, ${result}`);
+
+  ">Scissors</button>
+</div>
+</body>
+</html>
