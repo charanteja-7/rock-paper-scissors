@@ -1,101 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <style>
+      h1 {
+        margin-top: 200px;
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        margin-bottom: 50px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
-  <style>
-    h1 {
-      margin-top: 200px;
-      display: flex;
-      justify-content: center;
-      font-size: 50px;
-      margin-bottom: 50px;
-    }
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
 
-    * {
-      padding: 0px;
-      margin: 0px;
-    }
+      button {
+        padding: 50px;
+        margin: 20px;
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
 
-    button {
-      padding: 50px;
-      margin: 20px;
-      background-color: black;
-      color: white;
-      font-size: 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+      button:hover {
+        background-color: white;
+        color: black;
+      }
 
-    button:hover {
-      background-color: white;
-      color: black;
-    }
-
-    .game {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
-</head>
-<h1>Rock Paper Scissors!</h1>
-<br>
-<div class="game">
-
+      .game {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
   <body>
-    <button onclick="
-   var computerChoice = pickComputerMove();
-      let result='';
-        if (computerChoice==='Rock') {
-        result = 'Draw.';
-        } else if (computerChoice==='Paper') {
-        result = 'You Won.'
-        }else if(computerChoice==='scissors'){
-        result = 'You Won.'
+    <h1>Rock Paper Scissors!</h1>
+    <br />
+    <div class="game">
+      <button onclick="playGame('Rock');">Rock</button>
+      <button onclick="playGame('Rock');">Paper</button>
+      <button onclick="playGame('Scissors');">Scissors</button>
+    </div>
+    <script>
+      function playGame(yourChoice) {
+        var computerChoice = pickComputerMove();
+        let result = "";
+        if (computerChoice === yourChoice) {
+          result = "Draw.";
+        } else if (yourChoice === "Paper") {
+          if (computerChoice === "Rock") {
+            result = "You Won.";
+          } else if (computerChoice === "Scissors") {
+            result = "Computer Won.";
+          }
+        } else if (yourChoice === "Scissors") {
+          if (computerChoice === "Rock") {
+            result = "Compter Won.";
+          } else if (computerChoice === "Paper") {
+            result = "You Won.";
+          }
+        } else if (yourChoice === "Rock") {
+          if (computerChoice === "Paper") {
+            result = "Computer Won.";
+          } else if (computerChoice === "Scissors") {
+            result = "You Won.";
+          }
         }
-      alert(`you choosed Rock,computer choosed ${computerChoice}, ${result}`);
-  ">Rock</button>
-    <button onclick="
-     var computerChoice = pickComputerMove();
-        if (computerChoice==='Rock') {
-        result = 'You Won.';
-        } else if (computerChoice==='Paper') {
-        result = 'Draw.'
-        }else if(computerChoice==='scissors'){
-        result = 'Computer Won.'
+        alert(
+          `you choosed ${yourChoice},computer choosed ${computerChoice}, ${result}`
+        );
+      }
+      function pickComputerMove() {
+        let randNumber = Math.random();
+        let computerChoice = "";
+        if (randNumber >= 0 && randNumber <= 1 / 3) {
+          computerChoice = "Rock";
+        } else if (randNumber >= 1 / 3 && randNumber <= 2 / 3) {
+          computerChoice = "Paper";
+        } else {
+          computerChoice = "Scissors";
         }
-      alert(`you choosed Paper,computer choosed ${computerChoice}, ${result}`);
-    ">Paper</button>
-    <button onclick="
-      var computerChoice = pickComputerMove();
-        if (computerChoice==='Rock') {
-        result = 'Computer Won.';
-        } else if (computerChoice==='Paper') {
-        result = 'You Won.'
-        }else if(computerChoice==='scissors'){
-        result = 'Draw.'
-        }
-      alert(`you choosed Scissors,computer choosed ${computerChoice}, ${result}`);
-  ">Scissors</button>
-</div>
-<script>
-  function pickComputerMove() {
-    let randNumber = Math.random();
-    let computerChoice = '';
-    if (randNumber >= 0 && randNumber <= 1 / 3) {
-      computerChoice = 'Rock';
-    } else if (randNumber >= 1 / 3 && randNumber <= 2 / 3) {
-      computerChoice = 'Paper';
-    } else {
-      computerChoice = 'Scissors';
-    }
-    return computerChoice;
-  }
-</script>
-</body>
-
+        return computerChoice;
+      }
+    </script>
+  </body>
 </html>
