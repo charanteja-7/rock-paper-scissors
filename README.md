@@ -1,3 +1,3 @@
 # rock-paper-scissors
-basic game with html css and javascript with inlcluding only buttons
+Basic game with html css and javascript 
 https://charanteja-7.github.io/rock-paper-scissors/
